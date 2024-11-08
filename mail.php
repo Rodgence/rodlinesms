@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message_content = htmlspecialchars($_POST['message']);
 
     // Construct the message with user info
-    $message = "New Registration:\n";
+    $message = "New Customer for SMS:\n";
     $message .= "First Name: $first_name\n";
     $message .= "Last Name: $last_name\n";
     $message .= "Email: $email\n";
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare the POST data
     $postData = array(
-        'source_addr' => 'INFO',
+        'source_addr' => 'RodLine',
         'encoding' => 0,
         'schedule_time' => '',
         'message' => $message,
