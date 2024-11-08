@@ -19,7 +19,7 @@
       <h4>Useful Links</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a href="./register.php">Register</a></li>
         <li><a href="https://login.easyapps.co/#!/">Login</a></li>
         <li><a href="#">Terms of service</a></li>
         <li><a href="#">Privacy policy</a></li>

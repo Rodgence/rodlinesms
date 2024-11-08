@@ -49,7 +49,7 @@
           <li><a href="#portfolio">WordPress Plugin</a></li>
           <li><a href="#team">APIs Docs</a></li>
           <li><a href="https://login.easyapps.co/#!/">Login</a></li>
-          <li><a href="#team">Register</a></li>
+          <li><a href="./register.php">Register</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
