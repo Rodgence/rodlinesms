@@ -1,5 +1,5 @@
 <?php
-    include("incudes/header.php");
+    include("includes/header.php");
 ?>
 
   <main class="main">
