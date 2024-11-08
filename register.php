@@ -31,7 +31,7 @@
           <input type="password" name="password" class="form-control" placeholder="Password" required>
         </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-primary w-100">Register</button>
+          <button type="submit">Register</button>
         </div>
       </form>
     </div>
