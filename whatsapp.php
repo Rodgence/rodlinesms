@@ -3,7 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Replace these with your actual API key and secret key
-    $api_key = '7ea69236bb5bbf22';
+    $api_key = '7ea69236bb5bbf22v';
     $secret_key = 'ZWRmM2QzNWQyYWE4M2MwZjlmZDQ2YzdhY2RjN2RiYWVhMDZmZjk4YTY5MzIwMzdiMDQ3ZTA5YTFmMzY0YzBlYw==';
 
     // Collect user input from the form submission
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare the data to send to the API
     $postData = array(
-        'source_addr' => 'RodLine',
+        'source_addr' => 'INFO',
         'encoding' => 0,  // 0 means the message will be sent in SMS-7 encoding
         'schedule_time' => '',
         'message' => $message,  // Dynamically populated message
@@ -64,9 +64,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die();
     }
 
-    // Print the response for debugging purposes
-    var_dump($response);
-    // Redirect or show a success message
-    echo "Your information has been sent successfully!";
+    // Decode the JSON response
+    $response_data = json_decode($response, true);
+
+    // Check if the message was successful
+    if ($response_data['successful']) {
+        // Display success message
+        echo "Sucess! Thank you for registering to RodLine SMS";
+    } else {
+        // If there was an issue, display an error message
+        echo "There was an issue sending your message.";
+    }
+
+    // Close the cURL session
+    curl_close($ch);
 }
 ?>

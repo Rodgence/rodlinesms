@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row justify-content-center" data-aos="fade-up">
         <div class="col-md-6">
-          <form action="whatsapp.php" method="post" class="php-email-form" data-aos-delay="200">
+          <form action="mail.php" method="post" class="php-email-form" data-aos-delay="200">
             <div class="row gy-4">
               <div class="col-md-6">
                 <input type="text" name="first_name" class="form-control" placeholder="First Name" required="">
