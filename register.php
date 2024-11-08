@@ -14,7 +14,7 @@
     <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form action="mail.php" method="post" class="php-email-form">
+      <form action="mail.php" method="POST class="php-email-form">
         <div class="form-group">
           <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
         </div>
