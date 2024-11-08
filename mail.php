@@ -2,9 +2,9 @@
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Replace these with your actual API key and secret key
-    $api_key = '7ea69236bb5bbf22v';
-    $secret_key = 'ZWRmM2QzNWQyYWE4M2MwZjlmZDQ2YzdhY2RjN2RiYWVhMDZmZjk4YTY5MzIwMzdiMDQ3ZTA5YTFmMzY0YzBlYw==';
+   // Replace these with your actual API key and secret key
+   $api_key = '7ea69236bb5bbf22v';
+   $secret_key = 'ZWRmM2QzNWQyYWE4M2MwZjlmZDQ2YzdhY2RjN2RiYWVhMDZmZjk4YTY5MzIwMzdiMDQ3ZTA5YTFmMzY0YzBlYw==';
 
     // Collect user input from the form submission
     $first_name = htmlspecialchars($_POST['first_name']);
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         CURLOPT_POST => TRUE,
         CURLOPT_RETURNTRANSFER => TRUE,
         CURLOPT_HTTPHEADER => array(
-            'Authorization:Basic ' . base64_encode("$api_key:$secret_key"),
+            'Authorization: Basic ' . base64_encode("$api_key:$secret_key"),
             'Content-Type: application/json'
         ),
         CURLOPT_POSTFIELDS => json_encode($postData)
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response = curl_exec($ch);
 
     // Check for errors
-    if($response === FALSE){
+    if ($response === FALSE) {
         echo "Error: " . curl_error($ch);
         die();
     }
