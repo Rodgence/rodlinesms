@@ -1,41 +1,82 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-require 'vendor/autoload.php'; // Include PHPMailer library
+    // Replace these with your actual API key and secret key
+    $api_key = '7ea69236bb5bbf22';
+    $secret_key = 'ZWRmM2QzNWQyYWE4M2MwZjlmZDQ2YzdhY2RjN2RiYWVhMDZmZjk4YTY5MzIwMzdiMDQ3ZTA5YTFmMzY0YzBlYw==';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $firstName = $_POST['first_name'];
-  $lastName = $_POST['last_name'];
-  $email = $_POST['email'];
-  $phoneNumber = $_POST['phone_number'];
-  $password = $_POST['password'];
+    // Collect user input from the form submission
+    $first_name = htmlspecialchars($_POST['first_name']);
+    $last_name = htmlspecialchars($_POST['last_name']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone_number = htmlspecialchars($_POST['phone_number']);
+    $message_content = htmlspecialchars($_POST['message']);
 
-  $mail = new PHPMailer(true);
+    // Construct the message with user information
+    $message = "New Registration:\n";
+    $message .= "First Name: $first_name\n";
+    $message .= "Last Name: $last_name\n";
+    $message .= "Email: $email\n";
+    $message .= "Phone: $phone_number\n";
+    $message .= "Message: $message_content\n";
 
-  try {
-    // Server settings
-    $mail->isSMTP();
-    $mail->Host = 'mail.rodlinesms.co.tz';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'info@rodlinesms.co.tz';
-    $mail->Password = '@200r320KK'; // Use a secure method to store this
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
+    // Prepare the recipients (your phone number as the recipient)
+    $recipients = array(
+        array('recipient_id' => '1', 'dest_addr' => '+255621764385'),  // Send to your phone number
+        // You can add more numbers here if needed
+    );
 
-    // Recipients
-    $mail->setFrom('info@rodlinesms.co.tz', 'Registration');
-    $mail->addAddress('info@rodlinesms.co.tz'); // Recipient email
+    // Prepare the data to send to the API
+    $postData = array(
+        'source_addr' => 'RodLine SMS',
+        'encoding' => 0,  // 0 means the message will be sent in SMS-7 encoding
+        'schedule_time' => '',
+        'message' => $message,  // Dynamically populated message
+        'recipients' => $recipients // Array of recipients
+    );
 
-    // Content
-    $mail->isHTML(true);
-    $mail->Subject = 'New Registration Form Submission';
-    $mail->Body    = "First Name: $firstName<br>Last Name: $lastName<br>Email: $email<br>Phone Number: $phoneNumber<br>";
+    // API URL for sending the SMS
+    $Url = 'https://apisms.beem.africa/v1/send';
 
-    $mail->send();
-    echo 'Message has been sent';
-  } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-  }
+    // cURL initialization
+    $ch = curl_init($Url);
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt_array($ch, array(
+        CURLOPT_POST => TRUE,
+        CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_HTTPHEADER => array(
+            'Authorization:Basic ' . base64_encode("$api_key:$secret_key"),
+            'Content-Type: application/json'
+        ),
+        CURLOPT_POSTFIELDS => json_encode($postData)
+    ));
+
+    // Execute the cURL request
+    $response = curl_exec($ch);
+
+    // Check for errors
+    if($response === FALSE){
+        echo "Error: " . curl_error($ch);
+        die();
+    }
+
+    // Decode the JSON response
+    $response_data = json_decode($response, true);
+
+    // Check if the message was successful
+    if ($response_data['successful']) {
+        // Display success message
+        echo "Success!, Thank you to Register whith RodLine SMS, Life is Good!";
+    } else {
+        // If there was an issue, display an error message
+        echo "There was an issue sending your message.";
+    }
+
+    // Close the cURL session
+    curl_close($ch);
 }
 ?>
