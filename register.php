@@ -32,8 +32,10 @@
                 <input type="password" name="password" class="form-control" placeholder="Password" required="">
               </div>
               <div class="col-md-12 text-center">
-                
-                <button type="submit" class="btn btn-primary w-100">Register</button>
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your information has been submitted. Thank you!</div>
+                <button type="submit">Register</button>
               </div>
             </div>
           </form>
