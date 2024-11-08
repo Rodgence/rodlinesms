@@ -3,7 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Replace these with your actual API key and secret key
-    $api_key = '7ea69236bb5bbf22';
+    $api_key = '7';
     $secret_key = 'ZWRmM2QzNWQyYWE4M2MwZjlmZDQ2YzdhY2RjN2RiYWVhMDZmZjk4YTY5MzIwMzdiMDQ3ZTA5YTFmMzY0YzBlYw==';
 
     // Collect user input
