@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare the data to send to the API
     $postData = array(
-        'source_addr' => 'INFO',
+        'source_addr' => 'RodlLine',
         'encoding' => 0,  // 0 means the message will be sent in SMS-7 encoding
         'schedule_time' => '',
         'message' => $message,  // Dynamically populated message
