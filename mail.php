@@ -64,16 +64,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die();
     }
 
-    // Decode the JSON response
+    // Decode the JSON response safely
     $response_data = json_decode($response, true);
 
-    // Check if the message was successful
-    if ($response_data['successful']) {
+    // Check if the response is valid and contains the 'successful' key
+    if (is_array($response_data) && isset($response_data['successful']) && $response_data['successful']) {
         // Display success message
-        echo "Sucess! Thank you for registering to RodLine SMS";
+        echo "Your information has been sent successfully!";
     } else {
-        // If there was an issue, display an error message
-        echo "There was an issue sending your message.";
+        // If the response doesn't contain 'successful', display the whole response for debugging
+        echo "There was an issue sending your message. Response: " . json_encode($response_data);
     }
 
     // Close the cURL session
