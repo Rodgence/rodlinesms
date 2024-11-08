@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Handle cURL error
     if ($response === FALSE) {
-        echo "Error: " . curl_error($ch);
+        echo "Sent: " . curl_error($ch);
         die();
     }
 
