@@ -17,19 +17,19 @@
           <form action="mail.php" method="post" class="php-email-form" data-aos-delay="200">
             <div class="row gy-4">
               <div class="col-md-6">
-                <input type="text" name="first_name" class="form-control" placeholder="First Name" required="">
+                <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
               </div>
               <div class="col-md-6">
-                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required="">
+                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
               </div>
               <div class="col-md-12">
-                <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
               </div>
               <div class="col-md-12">
-                <input type="text" name="phone_number" class="form-control" placeholder="Phone number" required="">
+                <input type="text" name="phone_number" class="form-control" placeholder="Phone number" required>
               </div>
               <div class="col-md-12">
-                <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
               </div>
               <div class="col-md-12 text-center">
                
