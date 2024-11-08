@@ -1,10 +1,3 @@
-/**
-* Template Name: Butterfly
-* Template URL: https://bootstrapmade.com/butterfly-free-bootstrap-theme/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 (function() {
   "use strict";
@@ -207,3 +200,31 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+// validation
+document.querySelector('.php-email-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the form from submitting by default
+
+  const firstName = document.querySelector('input[name="first_name"]').value.trim();
+  const lastName = document.querySelector('input[name="last_name"]').value.trim();
+  const email = document.querySelector('input[name="email"]').value.trim();
+  const phoneNumber = document.querySelector('input[name="phone_number"]').value.trim();
+  const password = document.querySelector('input[name="password"]').value.trim();
+
+  // Basic validation
+  if (!firstName || !lastName || !email || !phoneNumber || !password) {
+    alert('All fields are required.');
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  // Additional validations for phone number, password, etc., can be added here
+
+  // Submit the form if all checks pass
+  this.submit();
+});
