@@ -16,6 +16,10 @@
         <p>Register Now to Send Bulk SMS</p>
       </div><!-- End Section Title -->
 
+  <div class="row">
+    <div class="container">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
       <div class="container" data-aos="fade-up">
       <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
   <div class="row gy-4">
@@ -53,6 +57,10 @@
 
       </div>
 
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
     </section><!-- /Starter Section Section -->
 
   </main>
