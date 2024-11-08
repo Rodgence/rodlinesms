@@ -12,36 +12,31 @@
     </div><!-- End Section Title -->
 
     <div class="container">
-      <div class="row justify-content-center" data-aos="fade-up">
-        <div class="col-md-6">
-          <form action="mail.php" method="post" class="php-email-form" data-aos-delay="200">
-            <div class="row gy-4">
-              <div class="col-md-6">
-                <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
-              </div>
-              <div class="col-md-6">
-                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
-              </div>
-              <div class="col-md-12">
-                <input type="email" name="email" class="form-control" placeholder="Email" required>
-              </div>
-              <div class="col-md-12">
-                <input type="text" name="phone_number" class="form-control" placeholder="Phone number" required>
-              </div>
-              <div class="col-md-12">
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
-              </div>
-              <div class="col-md-12 text-center">
-               
-                <button type="submit" class="btn btn-primary w-100">Register</button>
-              </div>
-            </div>
-          </form>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form action="mail.php" method="post" class="php-email-form">
+        <div class="form-group">
+          <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
         </div>
-      </div>
+        <div class="form-group">
+          <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="phone_number" class="form-control" placeholder="Phone number" required>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </div>
+      </form>
     </div>
-  </section>
-</main>
+  </div>
+</div>
 
 
  <?php
